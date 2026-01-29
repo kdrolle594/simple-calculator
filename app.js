@@ -30,8 +30,8 @@ function multiply() {
         document.getElementById('result').textContent = 'Result: Please enter valid numbers';
         return;
     }
-      
-    const product = num1 * num2;
+    const ans = num1 * num2;
+    const product = ans.toFixed(2);
     document.getElementById('result').textContent = 'Result: ' + product;
 }
 function divide() {
@@ -47,7 +47,7 @@ function divide() {
         document.getElementById('result').textContent = 'Result: Cannot divide by zero';
         return;
     }
-      
-    const quotient = num1 / num2;
+    const ans = num1 / num2;
+    const quotient = ans.toFixed(2);
     document.getElementById('result').textContent = 'Result: ' + quotient;
 }
