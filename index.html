@@ -4,45 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Calculator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 400px;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    
-    button {
-      padding: 12px 30px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin: 10px 0;
-    }
-    
-    button:hover {
-      background-color: #45a049;
-    }
-    
-    #result {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 20px;
-      color: #333;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Simple Calculator (v2)</h1>
@@ -51,6 +13,9 @@
   <input type="number" id="num2" placeholder="Number 2">
 
   <button onclick="add()">Add</button>
+  <button onclick="subtract()">Subtract</button>
+  <button onclick="multiply()">Multiply</button>
+  <button onclick="divide()">Divide</button>
 
   <p id="result">Result: </p>
 
@@ -66,6 +31,47 @@
       
       const sum = num1 + num2;
       document.getElementById('result').textContent = 'Result: ' + sum;
+    }
+    function subtract() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Result: Please enter valid numbers';
+        return;
+      }
+      
+      const difference = num1 - num2;
+      document.getElementById('result').textContent = 'Result: ' + difference;
+    }
+    function multiply() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Result: Please enter valid numbers';
+        return;
+      }
+      
+      const product = num1 * num2;
+      document.getElementById('result').textContent = 'Result: ' + product;
+    }
+    function divide() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Result: Please enter valid numbers';
+        return;
+      }
+      
+      if (num2 === 0) {
+        document.getElementById('result').textContent = 'Result: Cannot divide by zero';
+        return;
+      }
+      
+      const quotient = num1 / num2;
+      document.getElementById('result').textContent = 'Result: ' + quotient;
     }
   </script>
 </body>
